@@ -3,6 +3,7 @@
 *Freedom’s Boost* is a small Godot 4 project created as part of the [GameDev.TV "Project Boost"](https://www.udemy.com/course/complete-godot-3d) Udemy course.  
 This version adds a satirical, democratic twist inspired by the explosive universe of **Helldivers 2**.
 - [Download it here!](https://drive.google.com/file/d/1lKhxGzfUBhX8Aj-JEhXCyJeR0MuZc103/view?usp=drive_link)
+- Textures not loading? [Try the compatibility version!](https://drive.google.com/file/d/1mgwSTJQy6VhA2E9PXZhpYVGl8QheIQLY/view?usp=drive_link)
 
 ## 🎮 What Is This?
 
