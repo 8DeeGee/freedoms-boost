@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://cetqytsplghr5"]
+
+[ext_resource type="Script" path="res://Level/LandingPad.gd" id="1_7qg11"]
+[ext_resource type="PackedScene" uid="uid://2t4jnqjqv6vq" path="res://Entities/shakeable_camera.tscn" id="6_lafna"]
+[ext_resource type="PackedScene" uid="uid://d007tpadrbj84" path="res://map_borders_ex.tscn" id="6_xfd55"]
+[ext_resource type="PackedScene" uid="uid://dvwll0o3itm10" path="res://background.tscn" id="7_7jamj"]
+[ext_resource type="PackedScene" uid="uid://oqhs8tt58meu" path="res://player_ex.tscn" id="7_jxlvw"]
+[ext_resource type="PackedScene" uid="uid://cebxp77utoid8" path="res://Entities/obstacle.tscn" id="8_00tid"]
+[ext_resource type="PackedScene" uid="uid://c6y3ho1fhxbyv" path="res://Entities/moving_obstacle.tscn" id="9_btqbl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjwcq"]
+albedo_color = Color(0, 0.616667, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkm1r"]
+albedo_color = Color(1, 0.905882, 0.0627451, 1)
+
+[node name="Level" type="Node3D"]
+
+[node name="LaunchPad" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_bjwcq")
+
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_kkm1r")
+script = ExtResource("1_7qg11")
+file_path = "res://LevelFinished/level_F_8.tscn"
+
+[node name="Shakeable Camera" parent="." instance=ExtResource("6_lafna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 8.5)
+
+[node name="Player_EX" parent="." instance=ExtResource("7_jxlvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1.5, 0)
+yaw = 150.0
+
+[node name="Obstacle" parent="." instance=ExtResource("8_00tid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79038, 0.771436, -0.669373)
+size = Vector3(2, 3.47058, 1.66125)
+
+[node name="Obstacle2" parent="." instance=ExtResource("8_00tid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146708, 5.34187, -0.659729)
+size = Vector3(11.4217, 0.948975, 1.68054)
+
+[node name="Obstacle5" parent="." instance=ExtResource("9_btqbl")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 9.86547, 5.33753, -0.328353)
+destination = Vector3(-3, 0, 0)
+duration = 2.0
+
+[node name="Map Borders" parent="." instance=ExtResource("6_xfd55")]
+
+[node name="Background" parent="." instance=ExtResource("7_7jamj")]

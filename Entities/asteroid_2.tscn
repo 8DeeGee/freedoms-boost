@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dngcdbj47nobb"]
+
+[ext_resource type="Script" path="res://asteroid.gd" id="1_cmxwp"]
+[ext_resource type="ArrayMesh" uid="uid://byelxfddv6nh5" path="res://Meshes/Asteroid2.obj" id="2_shxsu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3154v"]
+albedo_color = Color(0.3, 0.3, 0.3, 1)
+
+[node name="Asteroid" type="AnimatableBody3D"]
+script = ExtResource("1_cmxwp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_3154v")
+mesh = ExtResource("2_shxsu")

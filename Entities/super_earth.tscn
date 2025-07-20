@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5ennmqdanbdu"]
+
+[ext_resource type="Script" path="res://Entities/super_earth.gd" id="1_5vxgs"]
+[ext_resource type="Texture2D" uid="uid://dv8n4hcxmo8p0" path="res://Textures/8081_earthmap4k.jpg" id="1_as38m"]
+[ext_resource type="Texture2D" uid="uid://6d6ybp1ud2kl" path="res://Textures/moon_texture.5400x2700.jpg" id="3_m81lr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a23ym"]
+albedo_texture = ExtResource("1_as38m")
+
+[sub_resource type="SphereMesh" id="SphereMesh_p7k3s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxmd5"]
+albedo_texture = ExtResource("3_m81lr")
+
+[sub_resource type="SphereMesh" id="SphereMesh_eg2ur"]
+
+[node name="Super Earth" type="AnimatableBody3D"]
+script = ExtResource("1_5vxgs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_a23ym")
+mesh = SubResource("SphereMesh_p7k3s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 1.1345, 0, 0)
+material_override = SubResource("StandardMaterial3D_yxmd5")
+mesh = SubResource("SphereMesh_eg2ur")

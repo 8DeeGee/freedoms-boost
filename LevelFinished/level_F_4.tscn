@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://dj187preh1far"]
+
+[ext_resource type="Script" path="res://Level/LandingPad.gd" id="1_6woge"]
+[ext_resource type="PackedScene" uid="uid://dvwll0o3itm10" path="res://background.tscn" id="5_mrr0d"]
+[ext_resource type="PackedScene" uid="uid://d007tpadrbj84" path="res://map_borders_ex.tscn" id="6_aaa6i"]
+[ext_resource type="PackedScene" uid="uid://2t4jnqjqv6vq" path="res://Entities/shakeable_camera.tscn" id="6_momj2"]
+[ext_resource type="PackedScene" uid="uid://oqhs8tt58meu" path="res://player_ex.tscn" id="7_k0eds"]
+[ext_resource type="PackedScene" uid="uid://c6y3ho1fhxbyv" path="res://Entities/moving_obstacle.tscn" id="8_8c60w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjwcq"]
+albedo_color = Color(0, 0.616667, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkm1r"]
+albedo_color = Color(1, 0.905882, 0.0627451, 1)
+
+[node name="Level" type="Node3D"]
+
+[node name="LaunchPad" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_bjwcq")
+
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_kkm1r")
+script = ExtResource("1_6woge")
+file_path = "res://LevelFinished/level_F_5.tscn"
+
+[node name="Shakeable Camera" parent="." instance=ExtResource("6_momj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 8.5)
+
+[node name="Player_EX" parent="." instance=ExtResource("7_k0eds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1.5, 0)
+yaw = 150.0
+
+[node name="Obstacle" parent="." instance=ExtResource("8_8c60w")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.5, 0)
+destination = Vector3(0, 7.5, 0)
+duration = 2.0
+
+[node name="Background" parent="." instance=ExtResource("5_mrr0d")]
+
+[node name="Map Borders" parent="." instance=ExtResource("6_aaa6i")]

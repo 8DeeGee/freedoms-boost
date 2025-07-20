@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://gs1vx6wie7eg"]
+
+[ext_resource type="Script" path="res://Level/LandingPad.gd" id="1_oqb22"]
+[ext_resource type="PackedScene" uid="uid://d007tpadrbj84" path="res://map_borders_ex.tscn" id="5_n2pf2"]
+[ext_resource type="PackedScene" uid="uid://2t4jnqjqv6vq" path="res://Entities/shakeable_camera.tscn" id="6_afgwt"]
+[ext_resource type="PackedScene" uid="uid://dvwll0o3itm10" path="res://background.tscn" id="6_e41le"]
+[ext_resource type="PackedScene" uid="uid://oqhs8tt58meu" path="res://player_ex.tscn" id="7_84vn3"]
+[ext_resource type="PackedScene" uid="uid://cebxp77utoid8" path="res://Entities/obstacle.tscn" id="8_dmdc5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjwcq"]
+albedo_color = Color(0, 0.616667, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkm1r"]
+albedo_color = Color(1, 0.905882, 0.0627451, 1)
+
+[node name="Level" type="Node3D"]
+
+[node name="LaunchPad" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_bjwcq")
+
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_kkm1r")
+script = ExtResource("1_oqb22")
+file_path = "res://LevelFinished/level_F_4.tscn"
+
+[node name="Shakeable Camera" parent="." instance=ExtResource("6_afgwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 8.5)
+
+[node name="Player_EX" parent="." instance=ExtResource("7_84vn3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1.5, 0)
+yaw = 150.0
+
+[node name="Obstacle" parent="." instance=ExtResource("8_dmdc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.415, 0)
+size = Vector3(9.00671, 2, 3)
+
+[node name="Map Borders" parent="." instance=ExtResource("5_n2pf2")]
+
+[node name="Background" parent="." instance=ExtResource("6_e41le")]

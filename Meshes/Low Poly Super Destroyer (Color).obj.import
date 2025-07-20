@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://estj4e1rvhjd"
+path="res://.godot/imported/Low Poly Super Destroyer (Color).obj-0a76e3a45d132ffd57df47fe3a085584.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Low Poly Super Destroyer (Color).obj-0a76e3a45d132ffd57df47fe3a085584.mesh"]
+
+source_file="res://Meshes/Low Poly Super Destroyer (Color).obj"
+dest_files=["res://.godot/imported/Low Poly Super Destroyer (Color).obj-0a76e3a45d132ffd57df47fe3a085584.mesh", "res://.godot/imported/Low Poly Super Destroyer (Color).obj-0a76e3a45d132ffd57df47fe3a085584.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

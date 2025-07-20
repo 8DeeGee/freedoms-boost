@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6y3ho1fhxbyv"]
+
+[ext_resource type="Script" path="res://Entities/moving_obstacle.gd" id="1_w337e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpoa6"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jleqa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycugo"]
+
+[node name="Obstacle" type="AnimatableBody3D" groups=["Hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59204, 0)
+script = ExtResource("1_w337e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_rpoa6")
+mesh = SubResource("BoxMesh_jleqa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ycugo")

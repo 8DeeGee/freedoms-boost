@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://crbtk17ajv1gb"]
+
+[ext_resource type="Script" path="res://Level/LandingPad.gd" id="1_38vx7"]
+[ext_resource type="PackedScene" uid="uid://daikmrttuqedp" path="res://player.tscn" id="2_cwdao"]
+[ext_resource type="PackedScene" uid="uid://dc0oc6dfo3bkt" path="res://Entities/asteroid.tscn" id="3_f376u"]
+[ext_resource type="PackedScene" uid="uid://dngcdbj47nobb" path="res://Entities/asteroid_2.tscn" id="4_fan2e"]
+[ext_resource type="PackedScene" uid="uid://botxd74nuvddq" path="res://Entities/asteroid_3.tscn" id="5_r4bvi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fgtyx"]
+sky_top_color = Color(0, 0, 0.0392157, 1)
+sky_horizon_color = Color(0.0392157, 0, 0.117647, 1)
+ground_bottom_color = Color(0, 0, 0.0392157, 1)
+ground_horizon_color = Color(0.0392157, 0, 0.117647, 1)
+ground_curve = 0.149285
+
+[sub_resource type="Sky" id="Sky_cnqyq"]
+sky_material = SubResource("ProceduralSkyMaterial_fgtyx")
+
+[sub_resource type="Environment" id="Environment_x8ym0"]
+background_mode = 2
+sky = SubResource("Sky_cnqyq")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ssyb"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjwcq"]
+albedo_color = Color(0, 0.616667, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkm1r"]
+albedo_color = Color(1, 0.905882, 0.0627451, 1)
+
+[node name="Level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x8ym0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.939693, -0.219846, 0.262003, 0, 0.766044, 0.642788, -0.34202, -0.604023, 0.719846, 0, 0, 0)
+light_color = Color(1, 1, 0.843137, 1)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="." groups=["Hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+use_collision = true
+size = Vector3(30, 8, 5)
+material = SubResource("StandardMaterial3D_7ssyb")
+
+[node name="LaunchPad" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_bjwcq")
+
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_kkm1r")
+script = ExtResource("1_38vx7")
+file_path = "res://Level/level_2.tscn"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 8.5)
+
+[node name="Player" parent="." instance=ExtResource("2_cwdao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1.5, 0)
+yaw = 150.0
+
+[node name="Asteroid" parent="." instance=ExtResource("3_f376u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 10, 50)
+sync_to_physics = false
+destination1 = Vector3(0, 0, -100)
+destination2 = Vector3(-200, 0, -100)
+destination3 = Vector3(-200, 0, 0)
+duration_depth = 0.5
+duration_witdh = 8.0
+rotation_speed = 1.0
+
+[node name="Asteroid2" parent="." instance=ExtResource("4_fan2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 30, 50)
+sync_to_physics = false
+destination1 = Vector3(0, 0, -100)
+destination2 = Vector3(-200, 0, -100)
+destination3 = Vector3(-200, 0, 0)
+duration_depth = 0.75
+duration_witdh = 10.0
+
+[node name="Asteroid3" parent="." instance=ExtResource("5_r4bvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -2.45337, 50)
+sync_to_physics = false
+destination1 = Vector3(0, 0, -100)
+destination2 = Vector3(-200, 0, -100)
+destination3 = Vector3(-200, 0, 0)
+duration_witdh = 5.0
+rotation_speed = 2.0

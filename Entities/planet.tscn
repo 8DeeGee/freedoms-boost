@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8qg7js33ag5d"]
+
+[ext_resource type="Script" path="res://Entities/super_earth.gd" id="1_raxj8"]
+[ext_resource type="Texture2D" uid="uid://c1qfk5ukh6pid" path="res://Textures/8k_jupiter.jpg" id="2_vxn5o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a23ym"]
+albedo_texture = ExtResource("2_vxn5o")
+
+[sub_resource type="SphereMesh" id="SphereMesh_p7k3s"]
+
+[node name="Planet" type="AnimatableBody3D"]
+script = ExtResource("1_raxj8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_a23ym")
+mesh = SubResource("SphereMesh_p7k3s")

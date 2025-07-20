@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccpbl30vtpc2p"]
+
+[ext_resource type="Script" path="res://Level/LandingPad.gd" id="1_8f7ds"]
+[ext_resource type="PackedScene" uid="uid://dvwll0o3itm10" path="res://background.tscn" id="5_1j411"]
+[ext_resource type="PackedScene" uid="uid://2t4jnqjqv6vq" path="res://Entities/shakeable_camera.tscn" id="6_trriv"]
+[ext_resource type="PackedScene" uid="uid://oqhs8tt58meu" path="res://player_ex.tscn" id="7_wgjf4"]
+[ext_resource type="PackedScene" uid="uid://d007tpadrbj84" path="res://map_borders_ex.tscn" id="8_tjjkp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjwcq"]
+albedo_color = Color(0, 0.616667, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkm1r"]
+albedo_color = Color(1, 0.905882, 0.0627451, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dd3s3"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymklo"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5gisd"]
+
+[node name="Level" type="Node3D"]
+
+[node name="LaunchPad" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_bjwcq")
+
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.4, 2)
+material = SubResource("StandardMaterial3D_kkm1r")
+script = ExtResource("1_8f7ds")
+file_path = "res://LevelFinished/level_F_2.tscn"
+
+[node name="Shakeable Camera" parent="." instance=ExtResource("6_trriv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 8.5)
+
+[node name="Player_EX" parent="." instance=ExtResource("7_wgjf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1.5, 0)
+yaw = 150.0
+
+[node name="Map Borders" parent="." instance=ExtResource("8_tjjkp")]
+
+[node name="Background" parent="." instance=ExtResource("5_1j411")]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(256, 256)
+
+[node name="Label" type="Label" parent="SubViewport"]
+offset_right = 256.0
+offset_bottom = 256.0
+text = "Controls: W/Spacebar for thrust,
+				A/Left for yaw (left),
+				D/Right for yaw (right,
+			    ESC for quit;
+
+Land on the yellow pad!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3.305, 0, 0, 0, 3.305, 0, 0, 0, 3.305, -6.028, 6.27615, -3.73567)
+texture = SubResource("ViewportTexture_dd3s3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(9, 0, 0, 0, 7, 0, 0, 0, 0.42, -6.308, 6.035, -4.571)
+material_override = SubResource("StandardMaterial3D_ymklo")
+mesh = SubResource("BoxMesh_5gisd")

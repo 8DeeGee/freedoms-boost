@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcbbb1qe847mi"]
+
+[ext_resource type="Script" path="res://Entities/trauma_causer.gd" id="1_qdlkq"]
+
+[node name="Trauma Causer" type="Area3D"]
+script = ExtResource("1_qdlkq")
