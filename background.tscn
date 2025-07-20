@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvwll0o3itm10"]
+
+[ext_resource type="PackedScene" uid="uid://dc0oc6dfo3bkt" path="res://Entities/asteroid.tscn" id="1_2oi51"]
+[ext_resource type="PackedScene" uid="uid://dngcdbj47nobb" path="res://Entities/asteroid_2.tscn" id="2_i1x2m"]
+[ext_resource type="PackedScene" uid="uid://botxd74nuvddq" path="res://Entities/asteroid_3.tscn" id="3_6hlk1"]
+[ext_resource type="PackedScene" uid="uid://c5ennmqdanbdu" path="res://Entities/super_earth.tscn" id="4_04qqf"]
+[ext_resource type="PackedScene" uid="uid://c8qg7js33ag5d" path="res://Entities/planet.tscn" id="5_r3etv"]
+
+[node name="Background" type="Node3D"]
+
+[node name="Asteroid" parent="." instance=ExtResource("1_2oi51")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 10, 50)
+sync_to_physics = false
+destination1 = Vector3(0, 0, -100)
+destination2 = Vector3(-200, 0, -100)
+destination3 = Vector3(-200, 0, 0)
+duration_depth = 0.5
+duration_witdh = 8.0
+rotation_speed = 1.0
+
+[node name="Asteroid2" parent="." instance=ExtResource("2_i1x2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 30, 50)
+sync_to_physics = false
+destination1 = Vector3(0, 0, -100)
+destination2 = Vector3(-200, 0, -100)
+destination3 = Vector3(-200, 0, 0)
+duration_depth = 0.75
+duration_witdh = 10.0
+
+[node name="Asteroid3" parent="." instance=ExtResource("3_6hlk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -2.45337, 50)
+sync_to_physics = false
+destination1 = Vector3(0, 0, -100)
+destination2 = Vector3(-200, 0, -100)
+destination3 = Vector3(-200, 0, 0)
+duration_witdh = 5.0
+rotation_speed = 2.0
+
+[node name="Super Earth" parent="." instance=ExtResource("4_04qqf")]
+transform = Transform3D(-17.4071, 0, -9.84847, 0, 20, 0, 9.84847, 0, -17.4071, 17.621, 0, -100)
+sync_to_physics = false
+rotation_speed = 0.25
+
+[node name="Planet" parent="." instance=ExtResource("5_r3etv")]
+transform = Transform3D(42, 0, 0, 0, 42, 0, 0, 0, 42, -105.617, 43.5939, -158.322)
+rotation_speed = 0.1

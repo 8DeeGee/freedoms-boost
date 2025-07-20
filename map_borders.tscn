@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://b80a3qcir4bf8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fgtyx"]
+sky_top_color = Color(0, 0, 0.0392157, 1)
+sky_horizon_color = Color(0.0392157, 0, 0.117647, 1)
+ground_bottom_color = Color(0, 0, 0.0392157, 1)
+ground_horizon_color = Color(0.0392157, 0, 0.117647, 1)
+ground_curve = 0.149285
+
+[sub_resource type="Sky" id="Sky_cnqyq"]
+sky_material = SubResource("ProceduralSkyMaterial_fgtyx")
+
+[sub_resource type="Environment" id="Environment_x8ym0"]
+background_mode = 2
+sky = SubResource("Sky_cnqyq")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ssyb"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
+
+[node name="Map Borders" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x8ym0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 0, 0)
+light_color = Color(1, 1, 0.843137, 1)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="." groups=["Hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.355, 0)
+use_collision = true
+size = Vector3(30, 8, 0.358887)
+material = SubResource("StandardMaterial3D_7ssyb")
+
+[node name="Floor4" type="CSGBox3D" parent="." groups=["Hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.384, 0)
+use_collision = true
+size = Vector3(30, 8, 0.358887)
+material = SubResource("StandardMaterial3D_7ssyb")
+
+[node name="Floor2" type="CSGBox3D" parent="." groups=["Hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.561, 0.683, 0)
+use_collision = true
+size = Vector3(6.39014, 19.7969, 0.358887)
+material = SubResource("StandardMaterial3D_7ssyb")
+
+[node name="Floor3" type="CSGBox3D" parent="." groups=["Hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.561, 0.683, 0)
+use_collision = true
+size = Vector3(6.39014, 19.7969, 0.358887)
+material = SubResource("StandardMaterial3D_7ssyb")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.04743, 0)
+light_color = Color(1, 1, 0.882353, 1)
+omni_range = 12.0
+omni_attenuation = 0.5
