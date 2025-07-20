@@ -7,12 +7,11 @@ This version adds a satirical, democratic twist inspired by the explosive univer
 
 ## 🎮 What Is This?
 
-You control a low poly Super Destroyer™, running a Super Earth™ approved training course on intergalactic navigation, to spread managed democracy one landing pad at a time. Maneuver your way through physics-based levels using thrust, rotate, and boost controls. Just be careful — red walls don’t vote, but they do explode.
-
+You control a low poly Super Destroyer™, running a Super Earth™ approved training course on intergalactic navigation, to spread managed democracy one landing pad at a time. Maneuver your way through physics-based levels using thrust, rotate, and boost controls.
 ## 🛠 Built With
 
 - [Godot Engine 4.2.2](https://godotengine.org/)
-- Assets created for learning purposes
+- Assets created by me using Godot Engine's built in tools and [Blender 3.6](https://www.blender.org/)
 - Gameplay designed by *Project Boost* from GameDev.TV
 - Code taken from *Project Boost* (GameDev.TV), "Star-field Shader for Godot 4 in Just 30 Minutes" (https://www.youtube.com/@iDigvijaysinhG), "Screen Shake (Godot 3D) - JUICY impacts, weapons, and more for 3D Godot games" (https://www.youtube.com/@Pefeper)
 
